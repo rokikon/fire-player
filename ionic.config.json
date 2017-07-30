@@ -1,0 +1,11 @@
+{
+  "name": "routy",
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://shielded-everglades-19950.herokuapp.com"
+    }
+  ],
+  "app_id": "bccc0c80"
+}

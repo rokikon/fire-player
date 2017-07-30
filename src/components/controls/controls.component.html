@@ -1,0 +1,26 @@
+<ion-footer class="controls" *ngIf="track.playing">
+  <!--<ion-header>-->
+    <!--<progress-bar [progress]="track?.progress"></progress-bar>-->
+  <!--</ion-header>-->
+  <ion-grid>
+
+    <ion-row>
+
+      <ion-col width="33">
+        <button (click)="previousTrack()" [disabled]="0 >= track.index" clear ion-button icon-only><ion-icon name="skip-backward"></ion-icon></button>
+      </ion-col>
+
+      <ion-col width="33">
+        <button *ngIf="!isPlaying" (click)="togglePlay()" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>
+        <button *ngIf="isPlaying" (click)="togglePlay()" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>
+      </ion-col>
+
+      <ion-col width="33">
+        <button (click)="nextTrack()" [disabled]="track.index >= 50" clear ion-button icon-only><ion-icon name="skip-forward"></ion-icon></button>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+</ion-footer>

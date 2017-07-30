@@ -1,0 +1,20 @@
+<ion-item detail-none
+        [ngClass]="{ 'alternate': i % 2, 'playing': track.playing }">
+
+  <ion-avatar item-left>
+    <img *ngIf="!track.playing" [src]="track.cover">
+    <button *ngIf="track.playing" (click)="togglePlay()" clear ion-button icon-only>
+      <ion-icon name="play"></ion-icon>
+    </button>
+
+  </ion-avatar>
+  <h2 (click)="select(track)">{{track.artist}}</h2>
+  <p (click)="select(track)">{{track.title}} {{track.duration}}</p>
+    <ion-icon *ngIf="!track.loaded && !track.loading && source !== 'storage'" (click)="download(track)" class="download" name="cloud-download"></ion-icon>
+    <ion-icon *ngIf="track.loaded && !track.loading && source !== 'storage'" class="download" name="cloud-done"></ion-icon>
+    <ion-icon *ngIf="source === 'storage'" (click)="deleteTrack(track)" class="download" name="trash"></ion-icon>
+  <ion-spinner *ngIf="track.loading" name="crescent" class="download"></ion-spinner>
+  <progress-bar *ngIf="track.progress < 100" [progress]="track.progress"></progress-bar>
+
+</ion-item>
+

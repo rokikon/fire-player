@@ -1,0 +1,26 @@
+ion-col.col {
+  font-size: 3em !important;
+  text-align: center;
+}
+.controls {
+  top: 540px;
+  background-color: #f8f8f8;
+
+  .grid {
+    background-color: #f8f8f8;
+    .row {
+      .col {
+        padding-top: 0;
+        button {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+ion-footer {
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+}

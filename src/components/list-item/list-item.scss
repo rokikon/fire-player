@@ -1,0 +1,26 @@
+.download {
+  position: absolute;
+  right: 20px !important;
+  top: 24% !important;
+  font-size: 32px;
+  z-index: 1000;
+
+  &.spinner {
+    left: 87% !important;
+  }
+}
+ion-label {
+  padding: 18px;
+}
+h2 {
+  position: absolute;
+  top: 7px;
+  left: 18%;
+  z-index: 1000;
+  width: 65%;
+}
+p {
+  position: absolute;
+  left: 18%;
+  z-index: 1000;
+}

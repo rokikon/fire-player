@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Playlist</ion-title>
+  </ion-navbar>
+  <ion-searchbar debounce="1000" fixed (ionInput)="getItems($event)"></ion-searchbar>
+  <!--<fire-player-controls *ngIf="!loading"></fire-player-controls>-->
+</ion-header>
+
+<ion-content fullscreen>
+
+  <ion-list no-line *ngIf="tracks.length">
+    <playlist-item *ngFor="let track of tracks;"
+                   [source]="'list'"
+                   [track]="track"
+                   (onLoad)="onLoad($event)"
+                   [ngClass]="{ 'alternate': i % 2, 'playing': track.playing }">
+    </playlist-item>
+  </ion-list>
+  <ion-spinner class="ios spinner-main" *ngIf="!tracks.length" name="bubbles" item-left></ion-spinner>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
+
+
+
